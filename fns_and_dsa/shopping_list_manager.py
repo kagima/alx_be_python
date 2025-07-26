@@ -10,7 +10,8 @@ def main():
 
     while True:
         display_menu()
-        choice = int(input("Enter your choice: "))
+        choice = input("Enter your choice: ")
+        choice = int(choice)
 
         if choice == 1:
             item = input("Enter item to add: ")
@@ -35,3 +36,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
