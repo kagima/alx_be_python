@@ -11,12 +11,11 @@ def main():
     while True:
         display_menu()
 
-        choice_input = input("Enter your choice: ")
-        if not choice_input.isdigit():
+        try:
+            choice = int(input("Enter your choice: "))
+        except ValueError:
             print("Invalid input. Please enter a number.")
             continue
-
-        choice = int(choice_input)
 
         if choice == 1:
             item = input("Enter item to add: ")
@@ -41,4 +40,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
