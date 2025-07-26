@@ -1,5 +1,5 @@
 def display_menu():
-    print("\nShopping List Manager")
+    print("Shopping List Manager")
     print("1. Add Item")
     print("2. Remove Item")
     print("3. View List")
@@ -11,35 +11,34 @@ def main():
     while True:
         display_menu()
 
-        try:
-            choice = int(input("Enter your choice: "))
-        except ValueError:
+        choice_input = input("Enter your choice: ")
+        if not choice_input.isdigit():
             print("Invalid input. Please enter a number.")
             continue
 
+        choice = int(choice_input)
+
         if choice == 1:
-            item = input("Enter item to add: ").strip()
+            item = input("Enter item to add: ")
             shopping_list.append(item)
-            print(f"'{item}' has been added to the list.")
+            print(f"{item} has been added to the list.")
         elif choice == 2:
-            item = input("Enter item to remove: ").strip()
+            item = input("Enter item to remove: ")
             if item in shopping_list:
                 shopping_list.remove(item)
-                print(f"'{item}' has been removed from the list.")
+                print(f"{item} has been removed from the list.")
             else:
-                print(f"'{item}' not found in the shopping list.")
+                print(f"{item} not found in the shopping list.")
         elif choice == 3:
-            if shopping_list:
-                print("Your shopping list:")
-                for i, item in enumerate(shopping_list, start=1):
-                    print(f"{i}. {item}")
-            else:
-                print("Your shopping list is empty.")
+            print("Shopping List:")
+            for i, item in enumerate(shopping_list, 1):
+                print(f"{i}. {item}")
         elif choice == 4:
             print("Goodbye!")
             break
         else:
-            print("Invalid choice. Please enter a number between 1 and 4.")
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()
+
